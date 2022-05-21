@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdleGit", "IdleGit\IdleGit.csproj", "{AA1DA9CE-4AA6-4FEE-81FB-3F2CB1A05182}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA1DA9CE-4AA6-4FEE-81FB-3F2CB1A05182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1DA9CE-4AA6-4FEE-81FB-3F2CB1A05182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1DA9CE-4AA6-4FEE-81FB-3F2CB1A05182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1DA9CE-4AA6-4FEE-81FB-3F2CB1A05182}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE592D01-6111-46A1-A980-E47E753419B6}
+	EndGlobalSection
+EndGlobal
