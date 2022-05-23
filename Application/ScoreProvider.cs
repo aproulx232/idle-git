@@ -1,20 +1,26 @@
-﻿namespace Application
+﻿using Infrastructure;
+
+namespace Application
 {
     public interface IScoreProvider
     {
-        Task GetScore();
+        Task<int> GetScore(string login);
     }
 
     public class ScoreProvider : IScoreProvider
     {
-        public ScoreProvider()
+        private readonly IGitHubService _gitHubService;
+
+        public ScoreProvider(IGitHubService gitHubService)
         {
-            
+            _gitHubService = gitHubService ?? throw new ArgumentNullException(nameof(gitHubService));
         }
 
-        public async Task GetScore()
+        public async Task<int> GetScore(string login)
         {
-            await Task.Yield();
+            var repositories = await _gitHubService.GetRepositories(login);
+
+            return repositories.Count;
         }
     }
 }

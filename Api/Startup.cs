@@ -1,5 +1,7 @@
 ﻿using Application;
+using Infrastructure;
 using Microsoft.OpenApi.Models;
+using Octokit;
 using Octokit.Webhooks;
 using Octokit.Webhooks.AspNetCore;
 
@@ -8,7 +10,9 @@ namespace Api
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        private const string ApiTitle = "Idle Git API";
+        private const string ProjectTitle = "IdleGit";
+        private const string ApiTitle = $"{ProjectTitle} API";
+        private const string Version = $"v0.1";
 
         public Startup(IConfiguration configuration)
         {
@@ -20,6 +24,8 @@ namespace Api
             services.AddControllers();
             services.AddSingleton<WebhookEventProcessor, MyWebhookEventProcessor>();
             services.AddSingleton<IScoreProvider, ScoreProvider>();
+            services.AddSingleton<IGitHubService, GitHubService>();
+            services.AddSingleton(new GitHubClient(new ProductHeaderValue(ProjectTitle, Version)));
             ConfigureSwagger(services);
         }
 
