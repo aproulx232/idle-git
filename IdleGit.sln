@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdleGit", "IdleGit\IdleGit.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{C03FC9E7-5C1A-4E97-A575-2E234984F46A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{096E6E2C-3481-4A03-8D7B-1A359E60B42A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C03FC9E7-5C1A-4E97-A575-2E234984F46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C03FC9E7-5C1A-4E97-A575-2E234984F46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C03FC9E7-5C1A-4E97-A575-2E234984F46A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096E6E2C-3481-4A03-8D7B-1A359E60B42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096E6E2C-3481-4A03-8D7B-1A359E60B42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096E6E2C-3481-4A03-8D7B-1A359E60B42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096E6E2C-3481-4A03-8D7B-1A359E60B42A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

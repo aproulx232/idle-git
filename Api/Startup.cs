@@ -1,11 +1,16 @@
-﻿using Octokit.Webhooks;
+﻿using Application;
+using Octokit.Webhooks;
 using Octokit.Webhooks.AspNetCore;
 
 namespace Api
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services) => services.AddSingleton<WebhookEventProcessor, MyWebhookEventProcessor>();
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<WebhookEventProcessor, MyWebhookEventProcessor>();
+            services.AddSingleton<IScoreProvider, ScoreProvider>();
+        }
 
         public void Configure(IApplicationBuilder app)
         {
