@@ -8,6 +8,7 @@ namespace Api
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddSingleton<WebhookEventProcessor, MyWebhookEventProcessor>();
             services.AddSingleton<IScoreProvider, ScoreProvider>();
         }
@@ -19,6 +20,7 @@ namespace Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGitHubWebhooks();
+                endpoints.MapControllers();
             });
         }
     }

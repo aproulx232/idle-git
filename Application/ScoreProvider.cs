@@ -12,9 +12,9 @@
             
         }
 
-        public Task GetScore()
+        public async Task GetScore()
         {
-            throw new NotImplementedException();
+            await Task.Yield();
         }
     }
 }
