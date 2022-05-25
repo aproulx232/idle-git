@@ -1,5 +1,7 @@
 ﻿using Application;
 using Infrastructure;
+using Infrastructure.TableService;
+using Microsoft.Extensions.Azure;
 using Microsoft.OpenApi.Models;
 using Octokit;
 using Octokit.Webhooks;
@@ -12,7 +14,7 @@ namespace Api
         public IConfiguration Configuration { get; }
         private const string ProjectTitle = "IdleGit";
         private const string ApiTitle = $"{ProjectTitle} API";
-        private const string Version = $"v0.1";
+        private const string Version = "v0.1";
 
         public Startup(IConfiguration configuration)
         {
@@ -27,6 +29,11 @@ namespace Api
             services.AddSingleton<IGitHubService, GitHubService>();
             services.AddSingleton(new GitHubClient(new ProductHeaderValue(ProjectTitle, Version)));
             ConfigureSwagger(services);
+            ConfigureTableService(services);
+            services.AddAzureClients(azureClientFactoryBuilder =>
+            {
+                azureClientFactoryBuilder.AddTableServiceClient(Configuration.GetConnectionString("StorageAccount"));
+            });
         }
 
         public void Configure(IApplicationBuilder app)
@@ -62,6 +69,13 @@ namespace Api
                     Version = "v1"
                 });
             });
+        }
+
+        private void ConfigureTableService(IServiceCollection services)
+        {
+            services.AddSingleton<ITableServiceConfiguration>(
+                new TableServiceConfiguration(Configuration.GetValue<string>("TableName")));
+            services.AddSingleton<ITableService, TableService>();
         }
     }
 }
